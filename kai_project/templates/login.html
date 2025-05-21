@@ -1,0 +1,9 @@
+
+<h2>Login</h2>
+{% if error %}<p>{{ error }}</p>{% endif %}
+<form method="post">
+  <input name="username" placeholder="Benutzername" required>
+  <input name="password" type="password" placeholder="Passwort" required>
+  <button type="submit">Login</button>
+</form>
+<p>Neu? <a href="/register">Registrieren</a></p>

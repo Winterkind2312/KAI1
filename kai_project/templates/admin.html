@@ -1,0 +1,25 @@
+
+<h2>Adminbereich</h2>
+<table>
+<tr><th>Benutzer</th><th>Rolle</th><th>Aktionen</th></tr>
+{% for user, data in users.items() %}
+<tr>
+  <td>{{ user }}</td>
+  <td>{{ data.role }}</td>
+  <td>
+    {% if user != 'admin' %}
+    <form method="post">
+      <input type="hidden" name="username" value="{{ user }}">
+      <button name="action" value="delete">Löschen</button>
+      {% if data.role == 'user' %}
+      <button name="action" value="promote">Zum Admin</button>
+      {% else %}
+      <button name="action" value="demote">Zum User</button>
+      {% endif %}
+    </form>
+    {% endif %}
+  </td>
+</tr>
+{% endfor %}
+</table>
+<a href="/">Zurück</a>
